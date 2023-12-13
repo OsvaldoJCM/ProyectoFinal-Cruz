@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.4.6/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="flex justify-center content-center hero min-h-screen ">
+        <div id="login" class="hero-content w-4/5 rounded-lg flex-col lg:flex-row-reverse glass mask-parallelogram-1 ">
+            <div class="text-center sm:text-left ">
+                <h1 class="text-5xl font-bold"> ¿Quieres se un experto en el universo?</h1>
+                <p class="py-6" id="mensajeInscripcion"></p>
+            </div>
+            <div class="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+                <form class="card-body" id="formParticipante">
+                    <div class="form-control">
+                        <label class="label">
+                            <span class="label-text">Nombre</span>
+                        </label>
+                        <input type="text" id="nombre" placeholder="Nombre" class="input input-bordered" required />
+                    </div>
+                    <div class="form-control">
+                        <label class="label">
+                            <span class="label-text">Pais</span>
+                        </label>
+                        <input type="text" id="pais" placeholder="Pais" class="input input-bordered" required />
+                    </div>
+                    <div class="form-control mt-6">
+                        <button class="btn glass">Iniciar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <dialog id="aviso" class="modal modal-bottom sm:modal-middle">
+            <div class="modal-box">
+                <h3 class="font-bold text-lg"></h3>
+                <p class="py-4"></p>
+                <div class="modal-action">
+                    <form method="dialog">
+                        <button id="cerrar" class="btn">Cerrar</button>
+                    </form>
+                </div>
+            </div>
+        </dialog>
+
+        <div id="opciones" class="glass py-8 px-10 rounded-lg">
+
+            <div class="card shrink-0 w-full max-w-2xl shadow-2xl bg-base-100 ">
+                <div class="card-body items-center text-center">
+                    <div id="info">
+                        <h3 class="text-4xl card-title">¿Quieres estudiar ciencias con un descuento increible?</h3>
+                        <p class="py-3">Responde este test y dependiendo de tu puntaje tendrás un descuento en el total
+                            de
+                            la carrera.</p>
+                        <div class="card-actions justify-center">
+                            <button class="btn btn-lg glass" onclick="iniciar()">Iniciar test</button>
+                        </div>
+                    </div>
+                    <div id="test" class="text-left">
+                        <div id="pregunta1" class="ocultos">
+                            <h3 class="text-2xl py-5 card-title">¿De qué color es el sol?</h3>
+                            <div class="form-control">
+                                <label class="label cursor-pointer justify-start">
+                                    <input type="radio" name="respuesta1" value="a" class="radio checked:bg-blue-500" />
+                                    <span class="label-text pl-2">Amarillo</span>
+                                </label>
+                            </div>
+                            <div class="form-control">
+                                <label class="label cursor-pointer justify-start">
+                                    <input type="radio" name="respuesta1" value="b" class="radio checked:bg-blue-500" />
+                                    <span class="label-text pl-2">Rojo</span>
+                                </label>
+                            </div>
+                            <div class="form-control">
+                                <label class="label cursor-pointer justify-start">
+                                    <input type="radio" name="respuesta1" value="c" class="radio checked:bg-blue-500" />
+                                    <span class="label-text pl-2">blanco</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div id="pregunta2" class="ocultos">
+                            <h3 class="text-2xl py-5 card-title">¿Cuántos planetas hay actualmente
+                                en nuestro sistema solar?</h3>
+                            <div class="form-control">
+                                <label class="label cursor-pointer justify-start">
+                                    <input type="radio" name="respuesta2" value="a" class="radio checked:bg-blue-500" />
+                                    <span class="label-text pl-2">10</span>
+                                </label>
+                            </div>
+                            <div class="form-control">
+                                <label class="label cursor-pointer justify-start">
+                                    <input type="radio" name="respuesta2" value="b" class="radio checked:bg-blue-500" />
+                                    <span class="label-text pl-2">9</span>
+                                </label>
+                            </div>
+                            <div class="form-control">
+                                <label class="label cursor-pointer justify-start">
+                                    <input type="radio" name="respuesta2" value="c" class="radio checked:bg-blue-500" />
+                                    <span class="label-text pl-2">8</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div id="pregunta3" class="ocultos">
+                            <h3 class="text-2xl py-5 card-title">¿Cuantos oceanos hay en la tierra?
+                            </h3>
+                            <div class="form-control">
+                                <label class="label cursor-pointer justify-start">
+                                    <input type="radio" name="respuesta3" value="a" class="radio checked:bg-blue-500" />
+                                    <span class="label-text pl-2">5</span>
+                                </label>
+                            </div>
+                            <div class="form-control">
+                                <label class="label cursor-pointer justify-start">
+                                    <input type="radio" name="respuesta3" value="b" class="radio checked:bg-blue-500" />
+                                    <span class="label-text pl-2">3</span>
+                                </label>
+                            </div>
+                            <div class="form-control">
+                                <label class="label cursor-pointer justify-start">
+                                    <input type="radio" name="respuesta3" value="c" class="radio checked:bg-blue-500" />
+                                    <span class="label-text pl-2">4</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div id="pregunta4" class="ocultos">
+                            <h3 class="text-2xl py-5 card-title">¿Cual es el planeta que está más
+                                cerca del sol?
+                            </h3>
+                            <div class="form-control">
+                                <label class="label cursor-pointer justify-start">
+                                    <input type="radio" name="respuesta4" value="a" class="radio checked:bg-blue-500" />
+                                    <span class="label-text pl-2">Marte</span>
+                                </label>
+                            </div>
+                            <div class="form-control">
+                                <label class="label cursor-pointer justify-start">
+                                    <input type="radio" name="respuesta4" value="b" class="radio checked:bg-blue-500" />
+                                    <span class="label-text pl-2">Mercurio</span>
+                                </label>
+                            </div>
+                            <div class="form-control">
+                                <label class="label cursor-pointer justify-start">
+                                    <input type="radio" name="respuesta4" value="c" class="radio checked:bg-blue-500" />
+                                    <span class="label-text pl-2">Venus</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div id="pregunta5" class="ocultos">
+                            <h3 class="text-2xl py-5 card-title">¿Cual es el planeta más caliente
+                                del sistema solar?
+                            </h3>
+                            <div class="form-control">
+                                <label class="label cursor-pointer justify-start">
+                                    <input type="radio" name="respuesta5" value="a" class="radio checked:bg-blue-500" />
+                                    <span class="label-text pl-2">Mercurio</span>
+                                </label>
+                            </div>
+                            <div class="form-control">
+                                <label class="label cursor-pointer justify-start">
+                                    <input type="radio" name="respuesta5" value="b" class="radio checked:bg-blue-500" />
+                                    <span class="label-text pl-2">Venus</span>
+                                </label>
+                            </div>
+                            <div class="form-control">
+                                <label class="label cursor-pointer justify-start">
+                                    <input type="radio" name="respuesta5" value="c" class="radio checked:bg-blue-500" />
+                                    <span class="label-text pl-2">Neptuno</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div id="resumen" class="ocultos">
+                        </div>
+
+                    </div>
+
+                    <div id="mensaje"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Javascript -->
+    <script src="js/main.js"></script>
+</body>
+
+</html>
