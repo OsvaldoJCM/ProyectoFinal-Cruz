@@ -23,7 +23,7 @@ function saberMas() {
     let divIss = document.getElementById('iss');
     setTimeout(() => {
         document.getElementById('sabiasQueInfo').style.display = 'none';
-        divIss.style.backgroundImage = 'url(img/ISS4.webp)';
+        divIss.style.backgroundImage = 'url(img/ISS.webp)';
         divIss.style.backgroundSize = "cover";
         divIss.style.opacity = 0.9;
         divIss.style.display = 'block';
