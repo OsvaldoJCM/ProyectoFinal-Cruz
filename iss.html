@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estación Espacial Internacional</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.4.6/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/iss.js" defer></script>
+</head>
+
+<body>
+
+    <div class="flex justify-center content-center hero min-h-screen ">
+        <div id="sabiasQue" class="glass w-4/5 py-8 px-10 rounded-lg">
+            <div id="contenedor" class="card shrink-0 w-full shadow-2xl bg-base-100 ">
+                <div id="sabiasQueInfo">
+                    <div class="card-body items-center text-center">
+                        <h4 class="text-2xl card-title">¿Sabías que existen actualmente más de 5.465 satélites en la
+                            órbita terrestre?
+                        </h4>
+                        <p class="pt-3">Uno de ellos, es la <b>Estación Espacial Internacional</b>, una pequeña ciudad
+                            científica flotando en el espacio y girando alrededor de
+                            la Tierra a 400 kilómetros por encima de nosotros.</p>
+                        </p>
+                        <div class="card-actions justify-center pt-2">
+                            <button class="btn btn-lg glass" onclick="saberMas()">Saber más</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="iss" class="oculto">
+                    <div class="card-body text-white">
+                        <h3 class="text-4xl card-title mb-6">Estación Espacial Internacional</h3>
+                        <p id="codigo"> </p>
+                        <p id="numero"> </p>
+                        <p id="latitud"> </p>
+                        <p id="longitud"></p>
+                        <p id="velocidad"></p>
+                        <p id="altura"></p>
+                        <div class="card-actions text-white justify-left glass w-1/2 my-6 py-3 px-3 rounded-lg">
+                            <h6>¿Sabias que este satelite es el más brillante despues de la luna? Eso significa que
+                                se puede ver a simple vista cuando pasa por encima de nosotros y el sol la ilumina
+                                ¿Quieres
+                                saber cuando
+                                pasa sobre ti?</h6>
+                            <button class="btn btn-md" onclick="getLocation()">Proximos avistamientos</button>
+                            <a class="btn btn-md" href="index.html">Volver</a>
+
+                        </div>
+
+                        <div class="overflow-x-auto" id="tablaAvistamientos">
+                            <table class="table-lg w-full">
+                                <thead>
+                                    <tr>
+                                        <th colspan="2">Inicio</th>
+                                        <th colspan="3">Máxima altitud</th>
+                                        <th colspan="2">Fin</th>
+                                    </tr>
+                                </thead>
+                                <thead>
+                                    <tr>
+                                        <th>Fecha y hora</th>
+                                        <th>Az.</th>
+                                        <th>Hora</th>
+                                        <th>Az.</th>
+                                        <th>El.</th>
+                                        <th>Hora</th>
+                                        <th>Az.</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="avistamientos">
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div id="mensaje"></div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/luxon@2.3.0/build/global/luxon.min.js"></script>
+    <!-- script para pedir ubicacion y mostrar position en latitud y logitud de la iss y pedir proximas avistamientos con datos reales de la nasa-->
+</body>
+
+</html>

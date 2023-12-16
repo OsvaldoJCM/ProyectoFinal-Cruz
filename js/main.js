@@ -49,7 +49,6 @@ function ordenarDivs() {
         document.getElementById('opciones').style.display = 'block';
         document.getElementById('test').style.display = 'none';
     } else {
-
         document.getElementById('login').setAttribute("hidden", false);
         document.querySelector("#aviso h3").innerText = `Estimado ${datosLocalStorage?.nombre}`;
         document.querySelector("#aviso p").innerText = "Según nuestros registros, ya se encuentra inscrito. ¿Desea inscribir a otra persona?"
@@ -132,6 +131,7 @@ form.addEventListener("submit", (e) => {
     document.getElementById("aviso").showModal();
     document.getElementById("cerrar").addEventListener("click", () => {
         ordenarDivs();
+        window.location.href = "iss.html";
     });
 
 });
